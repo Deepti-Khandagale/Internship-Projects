@@ -1,0 +1,166 @@
+{
+  "Python": {
+    "category": "Programming",
+    "aliases": ["python", "python3", "py"]
+  },
+  "Java": {
+    "category": "Programming",
+    "aliases": ["java"]
+  },
+  "JavaScript": {
+    "category": "Programming",
+    "aliases": ["javascript", "js", "ecmascript"]
+  },
+  "C++": {
+    "category": "Programming",
+    "aliases": ["c++", "cpp"]
+  },
+  "C#": {
+    "category": "Programming",
+    "aliases": ["c#", "csharp"]
+  },
+  "R": {
+    "category": "Programming",
+    "aliases": ["r programming", " r "]
+  },
+  "SQL": {
+    "category": "Database",
+    "aliases": ["sql", "structured query language"]
+  },
+  "MySQL": {
+    "category": "Database",
+    "aliases": ["mysql"]
+  },
+  "PostgreSQL": {
+    "category": "Database",
+    "aliases": ["postgresql", "postgres"]
+  },
+  "MongoDB": {
+    "category": "Database",
+    "aliases": ["mongodb", "mongo"]
+  },
+  "SQL Server": {
+    "category": "Database",
+    "aliases": ["sql server", "mssql", "ms sql"]
+  },
+  "Oracle": {
+    "category": "Database",
+    "aliases": ["oracle db", "oracle database", "oracle"]
+  },
+  "Power BI": {
+    "category": "BI",
+    "aliases": ["power bi", "powerbi", "power-bi"]
+  },
+  "Tableau": {
+    "category": "BI",
+    "aliases": ["tableau"]
+  },
+  "Looker": {
+    "category": "BI",
+    "aliases": ["looker", "looker studio"]
+  },
+  "QlikView": {
+    "category": "BI",
+    "aliases": ["qlikview", "qlik sense", "qlik"]
+  },
+  "Excel": {
+    "category": "Analytics",
+    "aliases": ["excel", "ms excel", "microsoft excel", "advanced excel"]
+  },
+  "Google Sheets": {
+    "category": "Analytics",
+    "aliases": ["google sheets"]
+  },
+  "Statistics": {
+    "category": "Analytics",
+    "aliases": ["statistics", "statistical analysis"]
+  },
+  "Pandas": {
+    "category": "Analytics",
+    "aliases": ["pandas"]
+  },
+  "NumPy": {
+    "category": "Analytics",
+    "aliases": ["numpy"]
+  },
+  "Machine Learning": {
+    "category": "Data Science",
+    "aliases": ["machine learning", "ml"]
+  },
+  "Deep Learning": {
+    "category": "Data Science",
+    "aliases": ["deep learning", "dl"]
+  },
+  "NLP": {
+    "category": "Data Science",
+    "aliases": ["nlp", "natural language processing"]
+  },
+  "TensorFlow": {
+    "category": "Data Science",
+    "aliases": ["tensorflow"]
+  },
+  "PyTorch": {
+    "category": "Data Science",
+    "aliases": ["pytorch"]
+  },
+  "Scikit-learn": {
+    "category": "Data Science",
+    "aliases": ["scikit-learn", "sklearn"]
+  },
+  "AWS": {
+    "category": "Cloud",
+    "aliases": ["aws", "amazon web services"]
+  },
+  "Azure": {
+    "category": "Cloud",
+    "aliases": ["azure", "microsoft azure"]
+  },
+  "GCP": {
+    "category": "Cloud",
+    "aliases": ["gcp", "google cloud", "google cloud platform"]
+  },
+  "Docker": {
+    "category": "DevOps",
+    "aliases": ["docker"]
+  },
+  "Kubernetes": {
+    "category": "DevOps",
+    "aliases": ["kubernetes", "k8s"]
+  },
+  "Git": {
+    "category": "Tools",
+    "aliases": ["git", "github", "gitlab", "version control"]
+  },
+  "Linux": {
+    "category": "Tools",
+    "aliases": ["linux", "unix"]
+  },
+  "Jira": {
+    "category": "Tools",
+    "aliases": ["jira"]
+  },
+  "FastAPI": {
+    "category": "Programming",
+    "aliases": ["fastapi"]
+  },
+  "Django": {
+    "category": "Programming",
+    "aliases": ["django"]
+  },
+  "Flask": {
+    "category": "Programming",
+    "aliases": ["flask"]
+  },
+  "Spark": {
+    "category": "Big Data",
+    "aliases": ["apache spark", "spark", "pyspark"]
+  },
+  "Hadoop": {
+    "category": "Big Data",
+    "aliases": ["hadoop"]
+  },
+  "Kafka": {
+    "category": "Big Data",
+    "aliases": ["kafka", "apache kafka"]
+  }
+}
