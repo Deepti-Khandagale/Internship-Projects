@@ -1,137 +1,198 @@
-# Job Skill Extraction API (Day 19)
+# 💼 AI Job Skill Extractor
 
-A FastAPI application that takes a pasted **job description**, extracts the
-skills mentioned in it, normalizes them, and groups them into categories.
+## Day 19 - Build an Application/API
 
-Includes **user registration and login (JWT auth)** — the skill-extraction
-endpoint is protected, so a user must log in to use it.
+This project converts a job skill extraction system into a usable web application.
+
+The application allows users to register, login, enter a job description, extract skills and map those skills to categories.
+
+---
+
+## Features
+
+- User Registration
+- User Login
+- Personalized User Dashboard
+- Displays logged-in user's Name
+- Displays logged-in user's Email
+- Job Description Input
+- Skill Extraction
+- Skill Normalization
+- Category Mapping
+- Dataset-based Skill Detection
+- Technology Recommendation
+- Streamlit Web Interface
+- SQLite Authentication Database
+
+---
+
+## Dataset
+
+The application uses the following dataset:
+
+`data/clean_jobs_descriptions_combined.csv`
+
+The dataset contains 8,785 job records and 13 columns.
+
+Important columns include:
+
+- Job Description
+- clean_description
+- skills
+- extracted_skills
+- categories
+
+---
 
 ## Architecture
 
-```
 User
-  ↓
-Web Interface / API (FastAPI - app.py)
-  ↓
-Preprocessing (lowercase, normalize separators)
-  ↓
-Skill Extraction Model (model/skill_extractor.py — alias matching against data/skills_db.json)
-  ↓
-Skill Normalization (aliases → canonical skill name, e.g. "powerbi" → "Power BI")
-  ↓
-Category Mapping (Programming, Database, BI, Analytics, Cloud, DevOps, Data Science, Tools, Big Data)
-  ↓
-Final Skills Deliverable (JSON response)
-```
+↓
+Register / Login
+↓
+Web Interface
+↓
+Job Description
+↓
+Preprocessing
+↓
+Skill Extraction
+↓
+Skill Normalization
+↓
+Category Mapping
+↓
+Final Skills
+↓
+Technology Recommendation
 
-## Project structure
+---
 
-```
-skillsapp/
-├── app.py                  # FastAPI app: auth routes + /analyze endpoint
-├── model/
-│   ├── __init__.py
-│   └── skill_extractor.py  # preprocessing + extraction + normalization + category mapping
-├── data/
-│   └── skills_db.json      # skill -> {category, aliases} knowledge base
-├── utils/
-│   ├── __init__.py
-│   ├── database.py         # SQLAlchemy engine/session + User model (SQLite)
-│   ├── auth.py              # password hashing + JWT create/verify
-│   └── schemas.py          # Pydantic request/response models
+## Technologies
+
+- Python
+- Streamlit
+- Pandas
+- SQLite
+- Regular Expressions
+
+---
+
+## Project Structure
+
+day19_skill_extractor/
+
+├── app.py
+
 ├── requirements.txt
-└── README.md
-```
 
-## Setup
+├── README.md
 
-```bash
-cd skillsapp
+├── data/
+
+│   └── clean_jobs_descriptions_combined.csv
+
+├── model/
+
+│   ├── __init__.py
+
+│   └── skill_extractor.py
+
+└── utils/
+
+    ├── __init__.py
+
+    ├── auth.py
+
+    └── data_loader.py
+
+---
+
+## Installation
+
+Create a virtual environment:
+
 python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
+
+Activate the environment on Windows:
+
+venv\Scripts\activate
+
+Install the required packages:
+
 pip install -r requirements.txt
-```
 
-## Run
+---
 
-```bash
-uvicorn app:app --reload
-```
+## Run Application
 
-Open the interactive docs at: http://127.0.0.1:8000/docs
+Run:
 
-## Usage
+streamlit run app.py
 
-### 1. Register
+The application will open in a web browser.
 
-`POST /register`
+---
 
-```json
-{
-  "username": "alice",
-  "email": "alice@example.com",
-  "password": "secret123"
-}
-```
+## Example Input
 
-### 2. Login
+Looking for Data Analyst with SQL, Python, Power BI and Excel experience.
 
-`POST /login` (form-encoded, not JSON — this is what the Swagger UI
-"Authorize" button sends automatically)
+---
 
-```
-username=alice
-password=secret123
-```
+## Expected Output
 
-Response:
+Detected Skills:
 
-```json
-{
-  "access_token": "eyJhbGciOi...",
-  "token_type": "bearer"
-}
-```
+Python
+SQL
+Power BI
+Excel
 
-Use this token as a **Bearer token** for all subsequent requests
-(in Swagger UI: click "Authorize" and paste the token).
+Categories:
 
-### 3. Analyze a job description
+Python → Programming
 
-`POST /analyze`
+SQL → Programming / Database
 
-```json
-{
-  "text": "Looking for Data Analyst with SQL, Python, Power BI and Excel experience."
-}
-```
+Power BI → Data Analytics
 
-Response:
+Excel → Analytics
 
-```json
-{
-  "detected_skills": ["Excel", "Power BI", "Python", "SQL"],
-  "categories": {
-    "Programming": ["Python"],
-    "Database": ["SQL"],
-    "BI": ["Power BI"],
-    "Analytics": ["Excel"]
-  },
-  "total_skills_found": 4
-}
-```
+---
 
-## Notes / next steps
+## Authentication
 
-- The skill knowledge base lives in `data/skills_db.json` — add more skills
-  or aliases there without touching any code.
-- `model/skill_extractor.py` is intentionally decoupled from the API layer,
-  so it can later be swapped for a spaCy/NER or embedding-based matcher
-  while keeping the same `extract_skills()` contract.
-- SQLite (`data/app.db`) is used for simplicity; swap the
-  `SQLALCHEMY_DATABASE_URL` in `utils/database.py` for Postgres/MySQL in
-  production.
-- Set a real `SECRET_KEY` environment variable before deploying
-  (`utils/auth.py` currently falls back to a placeholder).
-- A Streamlit front-end can call this same API (`/register`, `/login`,
-  `/analyze`) for a simple UI — CORS is already enabled in `app.py`.
+Users can register with:
+
+- Name
+- Email
+- Password
+
+After successful login, the application displays:
+
+Name: Registered User
+
+Email: Registered Email
+
+The user can then access the skill extraction dashboard.
+
+---
+
+## Database
+
+SQLite is used for storing user registration information.
+
+The database file `users.db` is automatically created when the application starts.
+
+---
+
+## Recommended Technology
+
+For a simple web application:
+
+Streamlit
+
+For exposing the system as an API:
+
+FastAPI
